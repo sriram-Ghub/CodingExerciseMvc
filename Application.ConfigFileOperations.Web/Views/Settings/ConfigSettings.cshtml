@@ -1,0 +1,30 @@
+﻿@model Dictionary<string, string>
+
+<h1>Config Settings</h1>
+
+<a style="margin: 10px" href="@Url.Action("GetServerNames", "Settings")">Select from dropdown again</a>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+        </tr>
+        @foreach (var setting in Model)
+        {
+            <form asp-controller="Settings" asp-action="UpdateConfigs" method="post">
+                <tr id="test">
+                    <td>
+                        <input type="text" class="" name="key" value="@setting.Key" readonly="readonly"/>
+                    </td>
+                    <td>
+                        <input type="text" class="" name="value" value="@setting.Value"/>
+                    </td>
+                    <td>
+                        <button type="submit">Update</button>
+                    </td>
+                </tr>
+            </form>
+        }
+    </table>
+</div>

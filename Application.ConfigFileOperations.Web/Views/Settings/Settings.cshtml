@@ -1,0 +1,22 @@
+@model List<string>
+
+<html>
+<head>
+
+</head>
+<body>
+<form id="submitForm" asp-controller="Settings" asp-action="GetConfigs" method="post">
+    <div style="margin-bottom:10px">Select server name from the dropdown</div>
+    <select id="selectedItem" name="selectedItem" onchange="this.form.submit()">
+        <option value="">--Select--</option>
+        @foreach (var item in Model)
+        {
+            <option value="@item">@item</option>
+        }
+    </select>
+    <noscript>
+        <button type="submit">Submit</button>
+    </noscript>
+</form>
+</body>
+</html>
